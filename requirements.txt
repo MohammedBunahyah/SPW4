@@ -1,0 +1,11 @@
+streamlit
+pandas
+scikit-learn
+nltk
+numpy
+matplotlib
+wordcloud
+seaborn
+gdown
+gensim
+joblib
