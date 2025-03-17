@@ -12,6 +12,7 @@ from nltk.stem import WordNetLemmatizer
 # :wrench: Ensure required NLTK resources are available before downloading
 nltk_data_path = os.path.expanduser("~/nltk_data")
 nltk.data.path.append(nltk_data_path)
+@st.cache_resource
 def ensure_nltk_resource(resource):
     try:
         nltk.data.find(resource)
