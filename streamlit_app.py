@@ -24,6 +24,10 @@ vectorizer = joblib.load("tfidf_vectorizer.pkl")
 # Google Drive data
 DATA_FILE_ID = "1AsdUWNsA981I0GXty9r345IBC4Ly_D1X"
 
+@st.cache_resource 
+def load_nltk_resources(): 
+    download_nltk_resources()
+
 @st.cache_data
 def download_from_gdrive(file_id, output_path):
     url = f"https://drive.google.com/uc?id={file_id}"
