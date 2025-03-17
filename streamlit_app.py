@@ -14,7 +14,7 @@ from nltk.stem import WordNetLemmatizer
 # 🔧 Define Paths
 NLTK_DIR = "nltk_data"  # Folder where NLTK data will be extracted
 NLTK_ZIP = "nltk_data.zip"  # Name of the zip file
-NLTK_GDRIVE_FILE_ID = "1r6gw59GwUUXiQGmR0rNex8qwoqGZgmBC"  # ✅ Your Google Drive File ID
+NLTK_GDRIVE_FILE_ID = "1rFi-z8t18crBrRsiZ9Ip5rw9bzn7svNQ"  # ✅ Your Google Drive File ID
 
 # 📥 Function to Download `nltk_data.zip` from Google Drive
 def download_nltk_data():
