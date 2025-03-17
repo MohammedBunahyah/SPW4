@@ -10,28 +10,32 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
 
-# 🔧 Ensure required NLTK resources are available before downloading
-nltk_data_path = os.path.expanduser("~/nltk_data")
-nltk.data.path.append(nltk_data_path)
+# 🔧 Set the NLTK Data Directory
+NLTK_DIR = os.path.expanduser("~/nltk_data")
+nltk.data.path.append(NLTK_DIR)
 
+# ✅ Function to Ensure NLTK Resource is Available
 def ensure_nltk_resource(resource):
     try:
         nltk.data.find(resource)
     except LookupError:
-        nltk.download(resource, download_dir=nltk_data_path)
+        nltk.download(resource, download_dir=NLTK_DIR)
 
-# ✅ Check & download only if necessary
+# ✅ Download Missing NLTK Resources
 ensure_nltk_resource("tokenizers/punkt")
 ensure_nltk_resource("corpora/stopwords")
 ensure_nltk_resource("corpora/wordnet")
 ensure_nltk_resource("corpora/omw-1.4")
 ensure_nltk_resource("taggers/averaged_perceptron_tagger")
 
-# ✅ Load NLTK components
+# ✅ Reload NLTK Data
+nltk.data.path.append(NLTK_DIR)
+
+# ✅ Initialize Stopwords & Lemmatizer
 stop_words = set(stopwords.words("english"))
 lemmatizer = WordNetLemmatizer()
 
-# ✅ Load Model & Vectorizer from GitHub (Not Google Drive)
+# ✅ Load Model & Vectorizer from GitHub
 try:
     model = joblib.load("model.pkl")
     vectorizer = joblib.load("tfidf_vectorizer.pkl")
